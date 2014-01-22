@@ -1,0 +1,3 @@
+{
+  "cmd": ["lmh", "xhtml", "$file"]
+}

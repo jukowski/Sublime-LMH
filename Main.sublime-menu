@@ -1,0 +1,13 @@
+[
+  {
+    "caption": "Project",
+    "mnemonic": "j", // The mnemonics are for quick keyboard access
+    "id": "project",
+    "children": [
+      {
+        "command": "search_concepts",
+        "caption": "Search concepts"
+      }      
+    ]
+  }
+]

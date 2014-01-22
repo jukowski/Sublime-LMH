@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+\atrefi[${1:id}]{${2:text}}.
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <!-- <tabTrigger>hello</tabTrigger> -->
+  <scope>text.tex.latex</scope> 
+</snippet>
