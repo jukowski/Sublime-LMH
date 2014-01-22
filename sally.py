@@ -20,7 +20,7 @@ class SallyClient(object):
     callback(message) 
 
   def gen_correlation(self):
-    return str(self.rand.randint(0, 1000000));
+    return str(self.rand.randint(0, 1000000))+".0";
 
   def __init__(self): 
     conn = stomp.Connection(host_and_ports=[("mathhub.info", 61613)])
@@ -39,8 +39,9 @@ class SallyClient(object):
     self.conn.unsubscribe(destination=self.myqueue, id=1)
 
   def registerCallback(self, callback):
-    self.gen_correlation();
+    corr = self.gen_correlation();
     self.corrMap[corr] = callback;
+    return corr
 
   def send(self, body, destination, callback = None):
     newHeaders = self.headers.copy();
