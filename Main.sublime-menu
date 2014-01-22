@@ -7,7 +7,15 @@
       {
         "command": "search_concepts",
         "caption": "Search concepts"
-      }      
+      },
+      {
+        "command": "insert_link",
+        "caption": "Link concepts"
+      },
+      {
+        "command": "add_assertion",
+        "caption": "Add Assertion"
+      }         
     ]
   }
 ]

@@ -8,23 +8,24 @@ import functools
 
 path = os.path.dirname(os.path.realpath(__file__))
 
-class SearchConceptsCommand(sublime_plugin.TextCommand):
+class AddAssertionCommand(sublime_plugin.TextCommand):
   def msg(self, edit, body):
     data = json.loads(body);
-    strInsert = "\\termref{"+data["symbol"]+"}{}{"+data["symbol"]+"}";
+    print data
+    strInsert = data["tex"];
 
     the_sels = self.view.sel()
     for a_sel in the_sels:
       self.view.replace(edit, a_sel, strInsert)
 
   def doexec(self, url):
-    call(["java","-jar", "theoexec.jar" ,"--url", url, "--width", "530", "--height", "380"], cwd=path)
+    call(["java","-jar", "theoexec.jar" ,"--url", url, "--width", "1050", "--height", "540"], cwd=path)
 
   def run(self, edit):
     client = sally.conn
     part = functools.partial(self.msg, edit);
     id = client.registerCallback(part)
-    url = "http://mathhub.info:8983/defindexer/app/search?forward_destination=%s&forward_correlation=%s"%(client.myqueue,id);
+    url = "http://mathhub.info:8983/stex-wizards/app/assertion?forward_destination=%s&forward_correlation=%s"%(client.myqueue,id);
     thread.start_new_thread(self.doexec, (url, ))
     pass
 

@@ -17,7 +17,8 @@ class SallyClient(object):
     if callback == None:
       print "No callback for correlation id %s"%corrid;
 
-    callback(message) 
+    if callback(message) == True:
+      self.corrMap[corrid] = callback       
 
   def gen_correlation(self):
     return str(self.rand.randint(0, 1000000))+".0";
