@@ -15,7 +15,7 @@ class SallyClient(object):
     self.corrMap[corrid] = None
 
     if callback == None:
-      print "No callback for correlation id %s"%corrid;
+      print("No callback for correlation id %s"%corrid);
 
     if callback(message) == True:
       self.corrMap[corrid] = callback       
